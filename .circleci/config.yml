@@ -27,7 +27,7 @@ jobs:
           command: sfdx force:auth:List
       - run:
           name: deploy
-          command: 'sfdx force:source:deploy -p force-app/main/default/classes - u tien.ho2@isobar.com'
+          command: 'sfdx force:source:deploy -p force-app/main/default/classes -u tien.ho2@isobar.com'
   #deploy:
     # This is an example deploy job, not actually used by the workflow
     #docker:
