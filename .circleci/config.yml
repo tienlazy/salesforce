@@ -2,31 +2,49 @@
 # Stacks detected: deps:node:.
 version: 2.1
 orbs:
-  node: circleci/node@5
+  sfdx: circleci/salesforce-sfdx@2.2.0
 jobs:
-  test-node:
+  deploy-tiendev-org:
     # Install node dependencies and run tests
-    executor: node/default
+    executor: sfdx/default
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: npm
+      - sfdx/install:
+          version: "latest"
+      - sfdx/auth:
+          instanceUrl: https://login.salesforce.com/
+          defaultusername: tien.ho2@isobar.com
+          consumerKey: 3MVG9fe4g9fhX0E46slrUTyis5kczebqrLIgbNgXo0zTVqRAByUqRcYFQwNlPn9UMy6PCi_.QRjhtekTnG9nn
+          jwtKey: LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLS1iM0JsYm5OemFDMXJaWGt0ZGpFQUFBQUFCRzV2Ym1VQUFBQUVibTl1WlFBQUFBQUFBQUFCQUFBQmx3QUFBQWR6YzJndGNuTmhBQUFBQXdFQUFRQUFBWUVBdDkyNjNNeUlyV0pPbHhoV2xDUm13T2E5bHhQbWkxKzhOTHFNVUdGRUxXRWNTTTRQeFo5Tm9GdnVuZjBGd0NTTTNTaHc3MlQ3bDdLSHdKa2dnSFFPL09scVhlM1ltRGNJcjNhQktZeEFCUjc5b2FmVTRxQUJ4Y3ROa0dFK01LWDVvZWRFZkVyTk4zNVJKUWVJU2hxMmk3VnVDN1JSOHFNd3U5VDVDN3JtUVlwb1ZkMjkvQnhPUWFaSUtIdUE4YlNXOG1IUC91aXUvM2dRck5vcWoxLzdWTXlhVDVjeXpTeUlzNVRIc0Z2TkNHZGFISWtSMmFmanA0T2xRYzdYOXVvUXhVaDdwODR6L3F0d2tDaXNzem1jdVlCNW5jVGhRcGNQS2t5OTJqUDJzUmg1S2J5aW9MVVlMRUtJNDMvaHU0RnlVWFVEdzlZMDFXNDJ1bktlWWdlREQ3TXVpYUZ0U1JIRlo0QmxldjFGcUR1Z0lIL2M3RUUrSng3T2RwYTVubVhoNW1kbHVGSG9tMkVtRjd4ZmpLbjl0bm5KUmVwU244cDhHcUMwL1orR3R6NzNxelYyNGkyMWpDTkN3YzNjTVMyT1JNRmRSREd2UXo0YlM5QlBlaVpNbkIrWWFpZnMyM2h5SmZBSllpN1BNQW5HQnZqUGx5dDE1c290TmlTQzluTlZBQUFGZ1BSWnNYcjBXYkY2QUFBQUIzTnphQzF5YzJFQUFBR0JBTGZkdXR6TWlLMWlUcGNZVnBRa1pzRG12WmNUNW90ZnZEUzZqRkJoUkMxaEhFak9EOFdmVGFCYjdwMzlCY0Frak4wb2NPOWsrNWV5aDhDWklJQjBEdnpwYWwzdDJKZzNDSzkyZ1NtTVFBVWUvYUduMU9LZ0FjWExUWkJoUGpDbCthSG5SSHhLelRkK1VTVUhpRW9hdG91MWJndTBVZktqTUx2VStRdTY1a0dLYUZYZHZmd2NUa0dtU0NoN2dQRzBsdkpoei83b3J2OTRFS3phS285ZisxVE1taytYTXMwc2lMT1V4N0JielFobldoeUpFZG1uNDZlRHBVSE8xL2JxRU1WSWU2Zk9NLzZyY0pBb3JMTTVuTG1BZVozRTRVS1hEeXBNdmRvejlyRVllU204b3FDMUdDeENpT04vNGJ1QmNsRjFBOFBXTk5WdU5ycHlubUlIZ3crekxvbWhiVWtSeFdlQVpYcjlSYWc3b0NCLzNPeEJQaWNlem5hV3VaNWw0ZVpuWmJoUjZKdGhKaGU4WDR5cC9iWjV5VVhxVXAvS2ZCcWd0UDJmaHJjKzk2czFkdUl0dFl3alFzSE4zREV0amtUQlhVUXhyME0rRzB2UVQzb21USndmbUdvbjdOdDRjaVh3Q1dJdXp6QUp4Z2I0ejVjcmRlYktMVFlrZ3ZaelZRQUFBQU1CQUFFQUFBR0JBSmpITFZYNnZqY1QwS25NRjJUUk9uQmZTbm9XbHlLSVVpS2VQNmtxcVRQcjFVekpyR0ZSbFhjQjdLeHFhalRXS2hZNlhGMFBVOThoQVp3UG9Pb2JoYml4V3lqaFVYQnBpbFlCNmlGVDRINWcyZTlSUFp0eHlRZEpmeEhSTzVQQTFrU3Bua2FKQVN4elVZbXJVSndDeGx3Z1RXaDhWUHVBamlZRk9VdDk2WVhjTkFYbFV0QUIxU1RIdm4yazRlZjFYdGZZWHJRNU0vQWpHL2dFOEFoaWdMeGRwbnNyNzVKOHhyb3hqaHdFcThHbjMwQ0d4TVpPc3VPbWg5Syt4TVR1aDhYNEoydHk5YWUybG13cHJOcFA3aEpmVkRpelBlcmhUNVBTYlhXaVRxTVRmYis0cEhITDk4cUFkZGtBcUVlTHAvZnZCVzlUeWFFVVc1RkFjY3FiUkVLSUdXOC94OG5BVnRCVjVNRkliVVE0aFQ4ZHQrcmtKcHdvNU10azR4QTFmNlBKVWFCVjN5YVRkcWUvU0NtNGVrdGFZMFg0K3FYeExkRmZzWHZaRGgzU2lPWlVUSkozOG9TNDRFNjltb0FYRlAydHlyV1hNNzNCbkx1VVpkMFB1c3Evd1E5N2prUE1mWklVdGEvZHNZOVBIcTdUZWJuLzNnN1JjUndzQitPWG9RQUFBTUF2b2cwNlhyS2NNSzhMcEJrOTJteUpnUk44Q0hLckgyc2RmalBxOXRyclRGbXYzWDQ4dFdEQS9ZdFljaWUvaUdPUXJZcHFWVnk3WmliMXkxc1pXTVZiK2VFa2VlRUwxS1E3cHM5TXpDWWs5aGpGTC9RMnEvK2lyR1JuOWFqb0VRcW5NelpoV05ySjVvWnpjdEoyMjJaQnR5ZlRROEtodFV3UTRSQ0t6WnZCYVBIVGl2c0pteHY5UWRRckVKYkZFcUVQWHlMK0NVQzdPVmxxQ0Jyc3RDbUpKMFZBQks3TTdsYThTVjFZMXlUbFp5SlFzQjBMelpmd0VPR09ZM0VQTXVnQUFBREJBUE5ZMzNpcjN3d25idGsyV1lxaFR5elpGVXBkaWxOS1cwRlpQRURMNnhyb1lwL214R3YzMllTYnlOMFhQRVNMVEI0WEQzOHNCZGdZOUdVTGVBSWJPQ1lhOEdXL00rdDFpeCs4MTJKbzdJa2FDOTBLZjAvWkVFcEFXbzlwNXMzYnJSMTBpK0pDd3JpMEFUdUlFREN6WktudXNTZFJXc29tSlJKZ1cxa2UwTi9tWDRSWU04UlN0dGlpMk1OcXBxRkFtQ21VaW15UlgxNS8zWnZnUkp2N05EN2ZxQ2FGZkgvZ1J1V3NYV3NRa0RCcWIzVFJvMUl5NGhYWXpFOEI5L1FGaXdBQUFNRUF3VzBmRlBLUVpMLzJrZE9odENNVGJ3ZmRLVWpyd29ML1owU290aTJMVVNFQTBzUDhCSmsvQUNTQ3dSRG1hZEZWTzFoQUJPbXpGYlowY0d5cC9WUG9zSmo1Ni9SUmR5Vk9zdEFPQVlCUFNMTGtFZk95VnZaN2FPTWNtQW9MQTk5anloS0hnUFF2YXNUR2FSaEt6Y3o3OE9FU3h3WjdEaHlZQWVoQ0M2YUkrczdFQ1dSODlzdjNPNWNiRjl1elZkblZHZXZDWkR3ZUFHWFA0bFBaSkl0OGJhd3g3cFNTYnhtbDVnZjlCd0sxeDU3U012NW5JMnEzN1NiSVgraWxDVWFmQUFBQUNVRmtiV2x1UUUxVFNRRT0tLS0tLUVORCBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLS0=
+      #- checkout
+      #- node/install-packages:
+          #pkg-manager: npm
+      #- run:
+          #name: Run tests
+          #command: npm test --passWithNoTests
       - run:
-          name: Run tests
-          command: npm test --passWithNoTests
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
+          name: Check Auth List
+          command: sfdx force:auth:List
       - run:
           name: deploy
-          command: '#e.g. ./deploy.sh'
+          command: 'sfdx force:source:deploy -p force-app/main/default/classes - u tien.ho2@isobar.com'
+  #deploy:
+    # This is an example deploy job, not actually used by the workflow
+    #docker:
+      #- image: cimg/base:stable
+    #steps:
+      # Replace this with steps to deploy to users
+      #- run:
+          #name: deploy
+          #command: 'sfdx force:source:deploy -p force-app/main/default/classes - u tien.ho2@isobar.com'
 workflows:
   build-and-test:
     jobs:
-      - test-node
+      - deploy-tiendev-org:
+          filters:
+            branches:
+              only: main
+
     # - deploy:
     #     requires:
     #       - test-node
