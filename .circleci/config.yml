@@ -13,7 +13,7 @@ jobs:
           version: "latest"
       - sfdx/auth:
           instanceUrl: https://login.salesforce.com/
-          defaultUsername: USER_NAME
+          username: USER_NAME
           consumerKey: CONSUMER_KEY
           jwtKey: JWT_KEY
       #- checkout
