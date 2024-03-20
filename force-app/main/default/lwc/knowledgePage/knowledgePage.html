@@ -1,0 +1,95 @@
+<template>
+    <div class="topnav">
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#">Link</a>
+        <a href="#" style="float:right">Link</a>
+    </div>
+
+    <div class="row">
+        <div class="topcolumn">
+            <div class="fakeimg" style="height:200px;">Image</div>
+        </div>
+        <div class="leftcolumn">
+            <div class="card">
+                <h2>About Me</h2>
+                <div class="fakeimg" style="height:100px;">Image</div>
+                <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+            </div>
+            <div class="card">
+                <h3>Popular Post</h3>
+                <div class="fakeimg">
+                    <p>Image</p>
+                </div>
+                <div class="fakeimg">
+                    <p>Image</p>
+                </div>
+                <div class="fakeimg">
+                    <p>Image</p>
+                </div>
+            </div>
+            <div class="card">
+                <h3>Follow Me</h3>
+                <p>Some text..</p>
+            </div>
+        </div>
+        <div class="rightcolumn">
+            <lightning-card>
+                <div class="card">
+                    <h1>Top Artical</h1>
+                    <div class="wrapper">
+                        <template for:each={listArticle} for:item="article">
+                            <div class="card_container" key={article.Id}>
+                                <div class="card_header">
+                                    <div class="header_left">
+                                        <h5>{article.Create_Date__c}</h5>
+                                    </div>
+                                    <div class="header_right">
+                                        <a>{article.Type__c}</a>
+                                    </div>
+                                </div>
+                                <div class="card_body">
+                                    <h2 class="article-title">{article.Title__c}</h2>
+                                    <div class="body_content">
+                                        <p class="content">{article.Detail__c}</p>
+                                    </div>
+                                </div>
+                                <div class="card_footer">
+                                    <a href="#" onclick={handleReadMore}>Read More</a>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </lightning-card>
+            <div class="bottomcolumn">
+                <div class="pagination">
+                    <a disabled={isPreviousDisabled} onclick={handleFirst}>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z" />
+                        </svg></a>
+                    <a disabled={isPreviousDisabled} onclick={handlePrevious}>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z" />
+                        </svg></a>
+
+                    <template for:each={numberButtons} for:item="button">
+                        <a key={button.value} data-page={button.value} class={button.buttonClass}
+                            onclick={handleNumberClick}>
+                            {button.label}
+                        </a>
+                    </template>
+
+                    <a disabled={isNextDisabled} onclick={handleNext}>Next</a>
+                    <a disabled={isNextDisabled} onclick={handleLast}>Last</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

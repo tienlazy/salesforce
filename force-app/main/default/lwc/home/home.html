@@ -1,0 +1,32 @@
+<template>
+    <section class="categories">
+        <div class="container-fluid">
+            <div class="row">
+                <template for:each={womens} for:item="women">
+                    <div class="col-lg-6 p-0" key={women.id}>
+                        <div class="categories__item categories__large__item set-bg" style={women.imageStyle}>
+                            <div class="categories__text">
+                                <h1>{women.name}</h1>
+                                <a href="#">Shop now</a>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <template for:each={categoriesData} for:item="category">
+                            <div class="col-lg-6 col-md-6 col-sm-6 p-0" key={category.id}>
+                                <div class="categories__item set-bg" style={category.imageStyle}>
+                                    <div class="categories__text">
+                                        <h4>{category.name}</h4>
+                                        <a href="#">Shop now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

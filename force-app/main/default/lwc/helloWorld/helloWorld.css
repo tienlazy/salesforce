@@ -1,0 +1,112 @@
+.card-containner {
+    width: 400px;
+}
+
+.container {
+    margin: 0 24px;
+}
+
+.heading-file {
+    font-weight: bold;
+    font-size: 20px;
+    padding-bottom: 20px;
+}
+
+.border-drag {
+    width: 100%;
+    border-style: dotted;
+    border-color: #DADCE0;
+    margin-bottom: 24px;
+}
+
+.file-size {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.nameFile {
+    font-size: 16px;
+    color: #0075FF;
+    font-weight: 500px;
+}
+
+.progressBar {
+    width: 100%;
+}
+
+.supname {
+    padding-left: 10px;
+}
+
+lightning-button-icon {
+    --lwc-borderWidthThin: none;
+    float: right;
+}
+
+.footer_action {
+    margin: 0 24px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text_total {
+    flex: 50%;
+    margin-top: 30px;
+}
+
+.text_total>p {
+    float: left;
+}
+
+.buttons {
+    flex: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.cancle_button {
+    margin-left: 24px;
+    margin-right: 23px;
+}
+
+.add_button {
+    margin-left: 23px;
+}
+
+.box-input {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.box-input>h3 {
+    padding-bottom: 10px;
+}
+
+.error-message {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.body_upload {
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: -13px;
+    top: -13px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.close:hover {
+    opacity: 1;
+}

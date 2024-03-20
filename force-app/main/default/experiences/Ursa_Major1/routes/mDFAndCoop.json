@@ -1,0 +1,10 @@
+{
+  "activeViewId" : "b49fd45b-96b8-43b5-9129-6089f3d915c4",
+  "appPageId" : "9b8092c8-2fe6-47a6-9bec-d3f65e8d5877",
+  "configurationTags" : [ ],
+  "id" : "05e97d8a-5df5-4624-80a2-5daec5f1d5b4",
+  "label" : "MDF and Coop",
+  "routeType" : "mdf",
+  "type" : "route",
+  "urlPrefix" : "mdf"
+}

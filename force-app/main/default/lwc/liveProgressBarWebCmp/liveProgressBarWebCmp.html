@@ -1,0 +1,31 @@
+<template>
+    <div class={cssClassNames}>
+        <template if:true={showProgressBar}>
+            <div class="slds-box slds-p-around_none">
+                <div
+                    class="slds-p-left_medium slds-p-top_small slds-p-bottom_small recordContainer slds-text-heading_small slds-text-title_bold">
+                    {sectionHeader}
+                </div>
+                <div class="slds-p-around_medium slds-p-right_none">
+                    <template if:true={showSpinner}>
+                        <div class="spinnerHolder">
+                            <lightning-spinner alternative-text="Loading" size="small" variant="brand">
+                            </lightning-spinner>
+                        </div>
+                    </template>
+                    <div class={progressHolderClass}>
+                        <template if:true={progressCountMsg}>
+                            <div>
+                                <p>
+                                    <lightning-formatted-text value={progressText}></lightning-formatted-text>
+                                </p>
+                            </div>
+                        </template>
+                        <lightning-progress-bar value={progressPercentValue} size={size} variant={variant}>
+                        </lightning-progress-bar>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

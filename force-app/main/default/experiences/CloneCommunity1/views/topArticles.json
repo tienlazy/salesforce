@@ -1,0 +1,69 @@
+{
+  "appPageId" : "b2e5f010-e7dc-4654-b03f-49788f3c6dc4",
+  "componentName" : "siteforce:sldsOneColLayout",
+  "dataProviders" : [ ],
+  "id" : "da1a1f7c-ccc5-4fa5-a572-054f5908570d",
+  "label" : "Top Articles",
+  "regions" : [ {
+    "id" : "5875546a-9d8f-40fd-8afa-d9e40e90098f",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "richTextValue" : "             <h1 style=\"text-align: center;\">                 <b style=\"font-size: 20px; color: #1e2443;\">Top Articles</b>             </h1>             "
+      },
+      "componentName" : "forceCommunity:richTextInline",
+      "id" : "526ce0ea-07fa-4523-8a76-95c126384dea",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    }, {
+      "componentAttributes" : {
+        "numberOfArticles" : 5,
+        "showTitle" : true,
+        "title" : "Articles",
+        "topicList" : [ {
+          "isPublic" : true,
+          "name" : "0TO5g000000of4LGAQ"
+        }, {
+          "isPublic" : true,
+          "name" : "0TO5g000000of4NGAQ"
+        }, {
+          "isPublic" : true,
+          "name" : "0TO5g000000of4MGAQ"
+        } ]
+      },
+      "componentName" : "forceCommunity:topArticleList",
+      "id" : "4eb77845-8012-4293-b78e-a42ff3231e6a",
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "7fdbdfaf-95d9-409d-8853-16deb9a7584b",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "3df5d9e8-4920-4809-88a3-1a5bc4150ad1",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Top Articles"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "44c80c89-9f0b-4b59-9bf4-85318ddd6e00",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "8b5eec5a-f3dc-45c0-96fc-423420ec1c9d",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Inner",
+  "type" : "view",
+  "viewType" : "top-articles"
+}

@@ -1,0 +1,11 @@
+{
+  "activeViewId" : "6372635a-5271-4c42-8149-fbdc72fc97cd",
+  "appPageId" : "b2e5f010-e7dc-4654-b03f-49788f3c6dc4",
+  "configurationTags" : [ ],
+  "id" : "27efae04-13d9-445f-8818-f39b884df54c",
+  "label" : "fdsf",
+  "pageAccess" : "UseParent",
+  "routeType" : "custom-fdsf",
+  "type" : "route",
+  "urlPrefix" : "fdsf"
+}

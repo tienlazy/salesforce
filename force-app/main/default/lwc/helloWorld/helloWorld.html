@@ -1,0 +1,62 @@
+<template>
+    <lightning-button variant="success" class="modal-upload" data-id="file-selector" label="Open popup" title="Open popup" onclick={showModalBox}></lightning-button>
+    <template if:true={isShowModal}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+           <div class="slds-modal__container">
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-card variant="base" class="card-containner">
+                        <div class="container">
+                            <h2 class="heading-file">File Upload</h2>
+                            <div class="border-drag">
+                                <div class="box-input">
+                                    <h3>Drag & drop your file here, or</h3>
+                                    <lightning-input record-id={recordId} class="upload" type="file" accept={acceptedFormats} onchange={handleFileChange} multiple></lightning-input>
+                                    <p class="file-size">Max file size is 100kb. Supported file types .jpg; .png</p>
+                                </div>
+                            </div>
+                            <template if:true={errorMessage}>
+                                <div class="error-message">{errorMessage}</div>
+                            </template>
+                            <div class="comp">
+                                <div class="nameFile">
+                                    <template for:each={listFiles} for:item="file" >
+                                        <!-- <p key={file.id}>{file.name} <sup class="supname">{file.size} · {file.type}</sup></p>
+                                        <template if:true={file.uploading}>
+                                            <a key={file.id}  class="close" onclick={handleCloseClick} data-file-id={file.id}></a>
+                                            <lightning-button-icon key={file.id} class="close" icon-name="utility:close" alternative-text="Close" onclick={handleCloseClick} data-file-id={file.id}></lightning-button-icon>
+                                            <progress key={file.id} class="progressBar" value={uploadPercentage} max="100"></progress>
+                                        </template> -->
+                                        <div key={file.id} class="body_upload">
+                                            <p>{file.name} <sup class="supname">{file.size} · {file.type}</sup></p>
+                                            <template if:true={file.uploading}>
+                                                <a class="close" onclick={handleCloseClick}>×</a>
+                                            </template>
+                                        </div>
+                                        <template if:true={file.uploading}>
+                                            <progress key={file.id} class="progressBar" value={uploadPercentage} max="100"></progress>
+                                        </template>
+                                    </template>
+                                </div>
+                            </div>
+                        </div>
+                    </lightning-card>
+                </div>
+                <footer class="slds-modal__footer">
+                    <div class="footer_action">
+                        <div class="text_total">
+                            <p>{numberStart} of 10 total allowance files</p>
+                        </div>
+                        <div class="buttons">
+                            <lightning-button variant="brand-outline" label="Cancle" title="Submit" onclick={hideModalBox} class="slds-m-left_x-small cancle_button"></lightning-button>
+                            <lightning-button variant="brand" label="Add File" title="Submit" onclick={handleClick} class="slds-m-left_x-small add_button"></lightning-button>
+                        </div>
+                    </div>
+                 </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>
+  
